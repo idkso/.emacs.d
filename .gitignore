@@ -1,0 +1,12 @@
+.lsp-session-v1
+*.sqlite
+eln-cache
+eshell
+elpa
+auto-save-list
+straight
+transient
+url
+tramp
+*~
+*.last
