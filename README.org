@@ -1,0 +1,5 @@
+* hello yes this is my emacs config
+and it is very sexy, obviously
+
+** how to use
+use ur brain retard
