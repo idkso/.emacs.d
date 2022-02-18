@@ -1,7 +1,16 @@
 (use-package go-mode
-	:straight t)
+	:straight t
+	:defer 2)
+
+(use-package rustic
+	:straight t
+	:defer 3
+	:custom
+	(rustic-format-on-save t))
+
 (use-package lsp-mode
 	:straight t
+	:defer 2
 	:custom
 	(lsp-keymap-prefix "C-c l")
 	(lsp-idle-delay 0.6)
@@ -14,4 +23,5 @@
 	 (lsp-mode . lsp-ui-mode)))
 
 (use-package lsp-ui
-	:straight t)
+	:straight t
+	:defer 2)

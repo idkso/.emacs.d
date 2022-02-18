@@ -1,17 +1,7 @@
-(use-package gruvbox-theme
-	:straight t)
-
 (use-package color-theme-sanityinc-tomorrow
 	:straight t
 	:config
 	(color-theme-sanityinc-tomorrow-night))
-
-(use-package async
-	:straight t
-	:init
-	(async-bytecomp-package-mode 1)
-	(autoload 'dired-async-mode "dired-async.el" nil t)
-	(dired-async-mode 1))
 
 (use-package doom-modeline
 	:straight t
@@ -22,40 +12,79 @@
 (use-package vertico
 	:straight t
 	:init
-	(vertico-mode t))
+	(vertico-mode t)
+	:defer 1)
 
 (use-package posframe
-	:straight t)
+	:straight t
+	:defer t)
 
 (use-package all-the-icons
 	:straight t
   :if (display-graphic-p))
 
-(use-package json-mode)
+(use-package json-mode
+	:straight t
+	:defer 2)
 
-(use-package nasm-mode)
+(use-package theme-magic
+	:straight t
+	:defer 2
+	:hook (emacs-startup-hook . theme-magic-export-theme-mode))
+
+(use-package fira-code-mode
+	:straight t
+	:if (display-graphic-p)
+	:defer 2
+	:hook tuareg-mode-hook)
+
+(use-package company-glsl
+	:straight t
+	:defer 1
+  :config
+  (when (executable-find "glslangValidator")
+    (add-to-list 'company-backends 'company-glsl)))
+
+(use-package nasm-mode
+	:straight t
+	:defer 2)
 
 (use-package tuareg
-	:straight t)
+	:straight t
+	:defer 2)
+
+(use-package tree-sitter
+	:straight t
+	:defer 1
+	:hook
+	(c++-mode-hook . tree-sitter-mode)
+	(rustic-mode-hook . tree-sitter-mode)
+	:config
+	(global-tree-sitter-mode)
+	(add-hook 'tree-sitter-after-on-hook #'tree-sitter-hl-mode))
+(use-package tree-sitter-langs
+	:straight t
+	:defer 1)
 
 (use-package magit
-	:straight t)
-
-(use-package vterm
-	:straight t)
+	:straight t
+	:defer 2)
 
 (use-package forge
 	:straight t
-  :after magit)
+  :after magit
+	:defer 2)
 
 (use-package pass
-	:straight t)
+	:straight t
+	:defer t)
 
 (use-package telega
 	:straight t
 	:init
 	(setq telega-emoji-use-images nil)
-	(setq telega-emoji-font-family "Apple Color Emoji"))
+	(setq telega-emoji-font-family "Apple Color Emoji")
+	:defer 2)
 
 (use-package company
 	:straight t
@@ -64,17 +93,23 @@
 	(setq company-backends '())
 	(setq company-idle-delay 0)
 	(setq company-minimum-prefix-length 1)
-	(setq company-tooltip-align-annotations t))
+	(setq company-tooltip-align-annotations t)
+	:defer 2)
 
 (use-package rainbow-delimiters
 	:straight t
+	:defer 1
 	:hook
 	(prog-mode . rainbow-delimiters-mode))
 
 (use-package diredfl
 	:straight t
+	:defer 2
 	:config
 	(diredfl-global-mode))
 
 (use-package zig-mode
-	:straight t)
+	:straight t
+	:defer 2
+	:init
+	(setq zig-format-on-save nil))
