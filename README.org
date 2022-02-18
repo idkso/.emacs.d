@@ -4,5 +4,8 @@ and it is very sexy, obviously
 ** how to use
 use ur brain retard
 
+** startup time
+on my thinkpad t440p w/ an i5-4300m and 8gb ram, startup time is usually around 600-750ms
+
 ** screenshots
 [[./assets/screenshot.png]]
