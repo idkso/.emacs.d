@@ -3,3 +3,6 @@ and it is very sexy, obviously
 
 ** how to use
 use ur brain retard
+
+** screenshots
+[[./assets/screenshot.png]]
