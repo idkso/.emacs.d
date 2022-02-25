@@ -12,3 +12,5 @@ tramp
 *.last
 *.elc
 games
+.cache
+places
