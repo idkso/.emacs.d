@@ -32,21 +32,12 @@
 	(interactive)
 	(byte-recompile-directory "~/.emacs.d/config"))
 
-(load-file "~/.emacs.d/config/pkginit.elc")
-(load-file "~/.emacs.d/config/packages.elc")
-(load-file "~/.emacs.d/config/lsp.elc")
-(load-file "~/.emacs.d/config/org.elc")
+(load-file (locate-user-emacs-file "config/pkginit.elc"))
+(load-file (locate-user-emacs-file "config/packages.elc"))
+(load-file (locate-user-emacs-file "config/lsp.elc"))
+(load-file (locate-user-emacs-file "config/org.elc"))
 
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(custom-enabled-themes '(sanityinc-tomorrow-night))
- '(warning-suppress-types '((use-package) (comp))))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
+(save-place-mode)
+
+(setq custom-file (locate-user-emacs-file "custom-vars.el"))
+(load custom-file 'noerror 'nomessage)
