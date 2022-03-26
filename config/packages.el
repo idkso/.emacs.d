@@ -89,11 +89,15 @@
 (use-package company
 	:straight t
 	:init
-	(add-hook 'after-init-hook 'global-company-mode)
+  (global-company-mode 1)
 	(setq company-backends '())
 	(setq company-idle-delay 0)
 	(setq company-minimum-prefix-length 1)
 	(setq company-tooltip-align-annotations t)
+	:defer 2)
+
+(use-package bison-mode
+	:straight t
 	:defer 2)
 
 (use-package rainbow-delimiters
@@ -112,4 +116,5 @@
 	:straight t
 	:defer 2
 	:init
+	(company-mode)
 	(setq zig-format-on-save nil))

@@ -41,3 +41,10 @@
 
 (setq custom-file (locate-user-emacs-file "custom-vars.el"))
 (load custom-file 'noerror 'nomessage)
+
+(defun idk-lol ()
+	(interactive)
+	(text-scale-adjust 3)
+	(company-mode -1))
+
+(global-set-key (kbd "C-c C-d C-c") 'idk-lol)

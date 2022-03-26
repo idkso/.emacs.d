@@ -5,6 +5,8 @@
 (use-package rustic
 	:straight t
 	:defer 3
+	:init
+	(company-mode)
 	:custom
 	(rustic-format-on-save t))
 
