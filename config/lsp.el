@@ -5,14 +5,12 @@
 (use-package rustic
 	:straight t
 	:defer 3
-	:init
-	(company-mode)
 	:custom
 	(rustic-format-on-save t))
 
 (use-package lsp-mode
 	:straight t
-	:defer 2
+	:defer t
 	:custom
 	(lsp-keymap-prefix "C-c l")
 	(lsp-idle-delay 0.6)
@@ -21,9 +19,12 @@
 	 (c++-mode . lsp)
 	 (go-mode . lsp)
 	 (zig-mode . lsp)
+	 (tuareg-mode . lsp)
 	 (lsp-mode . lsp-enable-which-key-integration)
 	 (lsp-mode . lsp-ui-mode)))
 
 (use-package lsp-ui
 	:straight t
-	:defer 2)
+	:defer t
+	:config
+	(setq lsp-ui-sideline-enable nil))

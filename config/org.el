@@ -8,6 +8,10 @@
 	(visual-line-mode)
 	(org-bullets-mode 1)
 	(setq org-src-fontify-natively t)
+	
+	(set-face-attribute 'fixed-pitch nil :font "JetBrains Mono Nerd Font" :height 140)
+	(set-face-attribute 'variable-pitch nil :font "JetBrains Mono Nerd Font" :height 160 :weight 'regular)
+	
 	(font-lock-add-keywords 'org-mode
 													'(("^ *\\([-]\\) "
 														 (0 (prog1 () (compose-region (match-beginning 1) (match-end 1) "•"))))))

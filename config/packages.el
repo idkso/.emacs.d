@@ -1,19 +1,35 @@
-(use-package color-theme-sanityinc-tomorrow
+(use-package gruber-darker-theme
 	:straight t
 	:config
-	(color-theme-sanityinc-tomorrow-night))
+	(load-theme 'gruber-darker t))
 
-(use-package doom-modeline
-	:straight t
-	:init
-	(setq-default doom-modeline-height 15)
-	(doom-modeline-mode 1))
+;; (use-package doom-modeline
+;; 	:straight t
+;; 	:init
+;; 	(setq-default doom-modeline-height 15)
+;; 	(doom-modeline-mode 1))
 
-(use-package vertico
+;; (use-package vertico
+;; 	:straight t
+;; 	:defer t
+;; 	:init
+;; 	(vertico-mode t))
+
+(use-package corfu
 	:straight t
+	:defer t
 	:init
-	(vertico-mode t)
-	:defer 1)
+	(global-corfu-mode))
+
+(use-package clang-format
+	:straight t
+	:defer t)
+
+(use-package ido-completing-read+
+	:straight t
+	:defer t
+	:config
+	(ido-ubiquitous-mode 1))
 
 (use-package posframe
 	:straight t
@@ -38,13 +54,6 @@
 	:defer 2
 	:hook tuareg-mode-hook)
 
-(use-package company-glsl
-	:straight t
-	:defer 1
-  :config
-  (when (executable-find "glslangValidator")
-    (add-to-list 'company-backends 'company-glsl)))
-
 (use-package nasm-mode
 	:straight t
 	:defer 2)
@@ -59,9 +68,10 @@
 	:hook
 	(c++-mode-hook . tree-sitter-mode)
 	(rustic-mode-hook . tree-sitter-mode)
-	:config
+	:init
 	(global-tree-sitter-mode)
 	(add-hook 'tree-sitter-after-on-hook #'tree-sitter-hl-mode))
+
 (use-package tree-sitter-langs
 	:straight t
 	:defer 1)
@@ -86,16 +96,6 @@
 	(setq telega-emoji-font-family "Apple Color Emoji")
 	:defer 2)
 
-(use-package company
-	:straight t
-	:init
-  (global-company-mode 1)
-	(setq company-backends '())
-	(setq company-idle-delay 0)
-	(setq company-minimum-prefix-length 1)
-	(setq company-tooltip-align-annotations t)
-	:defer 2)
-
 (use-package bison-mode
 	:straight t
 	:defer 2)
@@ -108,7 +108,7 @@
 
 (use-package diredfl
 	:straight t
-	:defer 2
+	:defer t
 	:config
 	(diredfl-global-mode))
 
@@ -116,5 +116,12 @@
 	:straight t
 	:defer 2
 	:init
-	(company-mode)
 	(setq zig-format-on-save nil))
+
+(use-package glsl-mode
+	:straight t
+	:defer t)
+
+(use-package nim-mode
+	:straight t
+	:defer 2)
