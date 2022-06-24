@@ -43,6 +43,12 @@
 	:straight t
 	:defer 2)
 
+(use-package slime
+	:straight t
+	:defer 2
+	:init
+	(setq inferior-lisp-program "sbcl"))
+
 (use-package theme-magic
 	:straight t
 	:defer 2
